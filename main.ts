@@ -13,7 +13,7 @@ enum FxMopm {
     sub = 0x1,
     //% block="×"
     mul = 0x2,
-    //% block="÷"
+    //% block="/"
     div = 0x3,
 }
 
