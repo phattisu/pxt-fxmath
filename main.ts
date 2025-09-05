@@ -31,9 +31,9 @@ enum FxMopn {
     imul = 0x1,
     //% block="int /"
     idiv = 0x2,
-    //% block="sh left"
+    //% block="<<"
     lsh  = 0x4,
-    //% block="sh right"
+    //% block=">>"
     rsh  = 0x5,
 }
 
@@ -48,24 +48,36 @@ enum FxMopo {
     ceil  = 0x3,
 }
 
-//% block="Fx math"
+//% block="Fx math" icon="\uf1ec" color="#ebc21e"
 namespace FxM {
 
+    /**
+     * setter
+     */
     //% blockId=fxmath_set block="fxn of $x"
-    function set(x: number) {
+    //% weight=10
+    export function set(x: number) {
         return Fx8(x)
     }
     
+    /**
+     * getter
+     */
     //% blockId=fxmath_get block="$x=fxmath_set from $nfm"
-    function get(x: Fx8, nfm: FxNfm) {
+    //% weight=9
+    export function get(x: Fx8, nfm: FxNfm) {
         switch (nfm) {
             case 0x0: return Fx.toInt(x)
             case 0x1: default: return Fx.toFloat(x)
         }
     }
 
+    /**
+     * operator math
+     */
     //% blockId=fxmath_opm block="$a=fxmath_set $op $b=fxmath_set"
-    function opm(a: Fx8, op: FxMopm, b: Fx8): Fx8 {
+    //% weight=8
+    export function opm(a: Fx8, op: FxMopm, b: Fx8): Fx8 {
         switch(op) {
             case 0x0: return Fx.add(a, b)
             case 0x1: return Fx.sub(a, b)
@@ -74,16 +86,24 @@ namespace FxM {
         } return Fx8(NaN)
     }
 
+    /**
+     * operator range math
+     */
     //% blockId=fxmath_opr block="$a=fxmath_set $op $b=fxmath_set"
-    function opr(a: Fx8, op: FxMopr, b: Fx8) {
+    //% weight=7
+    export function opr(a: Fx8, op: FxMopr, b: Fx8) {
         switch(op) {
             case 0x0: Fx.min(a, b)
             case 0x1: Fx.max(a, b)
         } return Fx8(NaN)
     }
 
+    /**
+     * operator math number
+     */
     //% blockId=fxmath_opn block="$x=fxmath_set $op $n"
-    function opn(x: Fx8, op: FxMopn, n: number): Fx8 {
+    //% weight=6
+    export function opn(x: Fx8, op: FxMopn, n: number): Fx8 {
         switch(op) {
             case 0x0: Fx.iadd(n, x)
             case 0x1: Fx.imul(x, n)
@@ -93,8 +113,12 @@ namespace FxM {
         } return Fx8(NaN)
     }
 
+    /**
+     * operator math single number
+     */
     //% blockId=fxmath_opo block="$op $x=fxmath_set"
-    function opo(op: FxMopo, x: Fx8): Fx8 {
+    //% weight=5
+    export function opo(op: FxMopo, x: Fx8): Fx8 {
         switch(op) {
             case 0x0: return Fx.abs(x)
             case 0x1: return Fx.neg(x)
