@@ -54,7 +54,7 @@ namespace FxM {
     /**
      * setter
      */
-    //% blockId=fxmath_set block="fxn of $x"
+    //% blockId=fxmath_set block="fxn $x"
     //% weight=10
     export function set(x: number) {
         return Fx8(x)
@@ -63,7 +63,7 @@ namespace FxM {
     /**
      * getter
      */
-    //% blockId=fxmath_get block="$x=fxmath_set from $nfm"
+    //% blockId=fxmath_get block="$x=fxmath_set to $nfm"
     //% weight=9
     export function get(x: Fx8, nfm: FxNfm) {
         switch (nfm) {
