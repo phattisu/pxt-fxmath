@@ -27,7 +27,7 @@ enum FxMopr {
 enum FxMopn {
     //% block="int +"
     iadd = 0x0,
-    //% block="int *"
+    //% block="int ×"
     imul = 0x1,
     //% block="int /"
     idiv = 0x2,
@@ -54,7 +54,7 @@ namespace FxM {
     /**
      * setter
      */
-    //% blockId=fxmath_set block="fxn $x"
+    //% blockId=fxmath_set block="fx8$x"
     //% weight=10
     export function set(x: number) {
         return Fx8(x)
@@ -116,7 +116,7 @@ namespace FxM {
     /**
      * operator math single number
      */
-    //% blockId=fxmath_opo block="$op $x=fxmath_set"
+    //% blockId=fxmath_opo block="$op of$x=fxmath_set"
     //% weight=5
     export function opo(op: FxMopo, x: Fx8): Fx8 {
         switch(op) {
