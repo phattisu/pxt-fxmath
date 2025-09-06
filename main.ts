@@ -63,7 +63,7 @@ namespace FxM {
     /**
      * getter
      */
-    //% blockId=fxmath_get block="$x=fxmath_set to $nfm"
+    //% blockId=fxmath_get block="$x=fxmath_set to$nfm"
     //% weight=9
     export function get(x: Fx8, nfm: FxNfm) {
         switch (nfm) {
