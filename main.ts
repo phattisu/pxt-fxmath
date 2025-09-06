@@ -1,8 +1,8 @@
 
 enum FxNfm {
-    //% block="Integer"
+    //% block="integer"
     int   = 0x0,
-    //% block="Float"
+    //% block="float"
     float = 0x1,
 }
 
