@@ -69,7 +69,7 @@ namespace FxM {
         switch (nfm) {
             case 0x0: return Fx.toInt(x)
             case 0x1: default: return Fx.toFloat(x)
-        }
+        } return NaN
     }
 
     /**
@@ -125,5 +125,14 @@ namespace FxM {
             case 0x2: return Fx.floor(x)
             case 0x3: return Fx.ceil(x)
         } return Fx8(NaN)
+    }
+
+    /**
+     * compare with two fx numbers
+     */
+    //% blockId=fxmath_comp block="compare $a=fxmath_set and $b=fxmath_set"
+    //% weight=4
+    export function comp(a: Fx8, b: Fx8) {
+        return Fx.compare(a, b)
     }
 }
